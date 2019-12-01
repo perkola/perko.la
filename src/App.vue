@@ -1,15 +1,85 @@
 <template>
   <div id="app">
     <div class="bg-gray-200 w-full">
-      <div class="container mx-auto px-8 flex flex-col justify-center h-40">
-        <h1 class="text-4xl text-gray-600 font-thin">William Perkola</h1>
-        <h4 class="text-blue-500 leading-none ml-8">"I can't decide on an inspiring quote to place here..."</h4>
+      <div class="container mx-auto px-8 pb-16 sm:pb-0 flex flex-col justify-center h-40">
+        <h1 class="text-4xl text-gray-600 font-thin text-center sm:text-left">William Perkola</h1>
+        <h4 class="hidden sm:block text-blue-500 leading-none sm:ml-8">"I can't decide on an inspiring quote to place here..."</h4>
       </div>
     </div>
-    <div class="container mx-auto px-8">
-      <div class="flex">
-        <div class="flex-1 py-8 pr-8">
-            <h1 class="text-2xl leading-none text-gray-600 font-thin">Experience</h1>
+    <div class="container mx-auto px-4 sm:px-8">
+      <div class="flex flex-wrap sm:flex-row-reverse">
+        <div class="w-full sm:w-40 sm:border-l-8 border-gray-200 sm:pl-8 pt-8 sm:pb-8 relative">
+          <div class="flex justify-center">
+          <img src="./assets/me.jpg" class="rounded-full border-8 border-gray-200 absolute w-40 -mt-20 top-0 sm:left-0 sm:-ml-20">
+          </div>
+
+            <h1 class="hidden sm:block text-xl mt-4 sm:mt-0 sm:text-2xl leading-none text-gray-600 text-right font-thin">Skills</h1>
+
+            <div class="mt-16 sm:mt-8 flex justify-between sm:block">
+                <span class="flex-1 block text-gray-800 mb-1 text-right sm:text-left mr-2 mr-2">Clojure</span>
+                <div class="flex-1 sm:flex justify-between ml-2 ml-2 sm:ml-0">
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                </div>
+            </div>
+            <div class="mt-2 sm:mt-4 flex justify-between sm:block">
+                <span class="flex-1 block text-gray-800 mb-1 text-right sm:text-left mr-2">Python</span>
+                <div class="flex-1 sm:flex justify-between ml-2 sm:ml-0">
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                </div>
+            </div>
+            <div class="mt-2 sm:mt-4 flex justify-between sm:block">
+                <span class="flex-1 block text-gray-800 mb-1 text-right sm:text-left mr-2">Go</span>
+                <div class="flex-1 sm:flex justify-between ml-2 sm:ml-0">
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                </div>
+            </div>
+            <div class="mt-2 sm:mt-4 flex justify-between sm:block">
+                <span class="flex-1 block text-gray-800 mb-1 text-right sm:text-left mr-2">HTML / CSS</span>
+                <div class="flex-1 sm:flex justify-between ml-2 sm:ml-0">
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
+                </div>
+            </div>
+            <div class="mt-2 sm:mt-4 flex justify-between sm:block">
+                <span class="flex-1 block text-gray-800 mb-1 text-right sm:text-left mr-2">Javascript</span>
+                <div class="flex-1 sm:flex justify-between ml-2 sm:ml-0">
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-love-400 rounded-full"></span>
+                  <span class="inline-block mr-2 sm:mr-0 w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-100 sm:border-love-200"></span>
+                </div>
+            </div>
+
+            <div class="flex justify-center sm:justify-between text-3xl sm:text-2xl mt-8 text-gray-600">
+                <a href="mailto:perkola.william@gmail.com" class="leading-none hover:text-red-600 mx-2">
+                    <svg class="icon icon-mail4"><use xlink:href="#icon-mail4"></use></svg>
+                </a>
+                <a href="https://github.com/perkola" target="_blank" class="leading-none hover:text-black mx-2">
+                  <svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/perkola/" target="_blank" class="leading-none hover:text-blue-600 mx-2">
+                  <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>
+                </a>
+            </div>
+        </div>
+        <div class="w-full sm:flex-1 py-8 sm:pr-8">
+            <h1 class="text-xl sm:text-xl sm:text-2xl leading-none text-gray-600 font-thin">Experience</h1>
             <resume-entry
               v-for="entry in experiences"
               v-bind:key="entry.title"
@@ -22,7 +92,7 @@
               {{ entry.description }}
             </resume-entry>
 
-            <h1 class="mt-8 text-2xl leading-none text-gray-600 font-thin">Education</h1>
+            <h1 class="mt-8 text-xl sm:text-2xl leading-none text-gray-600 font-thin">Education</h1>
             <resume-entry
               v-for="entry in education"
               v-bind:key="entry.title"
@@ -33,77 +103,9 @@
 
             ></resume-entry>
 
-            <div class="text-right text-gray-600 mt-16">
+            <div class="text-center sm:text-right text-gray-600 mt-8 sm:mt-16">
               <p class="text-sm">Copyright &copy; 2019 William Perkola</p>
-              <p class="text-sm mt-2">Built with <a href="https://vuejs.org/" class="text-love-300 hover:underline" target="_blank">Vue.js</a> and <a href="https://tailwindcss.com/" class="text-love-300 hover:underline" target="_blank">Tailwind CSS</a>. Source code available on <a href="https://github.com/perkola" class="text-love-300 hover:underline" target="_blank">GitHub</a>.</p>
-            </div>
-        </div>
-        <div class="w-40 border-l-8 border-gray-200 pl-8 py-8 relative">
-          <img src="./assets/me.jpg" class="rounded-full absolute border-8 border-gray-200 w-40 -mt-20 top-0 left-0 -ml-20">
-
-            <h1 class="text-2xl leading-none text-gray-600 text-right font-thin">Skills</h1>
-
-            <div class="mt-8">
-                <span class="block text-gray-800 mb-1">Clojure</span>
-                <div class="flex justify-between">
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                </div>
-            </div>
-            <div class="mt-4">
-                <span class="block text-gray-800 mb-1">Python</span>
-                <div class="flex justify-between">
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                </div>
-            </div>
-            <div class="mt-4">
-                <span class="block text-gray-800 mb-1">Go</span>
-                <div class="flex justify-between">
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                </div>
-            </div>
-            <div class="mt-4">
-                <span class="block text-gray-800 mb-1">HTML / CSS</span>
-                <div class="flex justify-between">
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                </div>
-            </div>
-            <div class="mt-4">
-                <span class="block text-gray-800 mb-1">Javascript</span>
-                <div class="flex justify-between">
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-love-400 rounded-full"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                  <span class="inline-block w-5 h-5 bg-none rounded-full border-2 border-love-300"></span>
-                </div>
-            </div>
-
-            <div class="flex justify-between text-2xl mt-8 text-gray-600">
-                <a href="mailto:perkola.william@gmail.com" class="leading-none hover:text-red-600">
-                    <svg class="icon icon-mail4"><use xlink:href="#icon-mail4"></use></svg>
-                </a>
-                <a href="https://github.com/perkola" target="_blank" class="leading-none hover:text-black">
-                  <svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/perkola/" target="_blank" class="leading-none hover:text-blue-600">
-                  <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>
-                </a>
+              <p class="text-sm mt-2">Built with <a href="https://vuejs.org/" class="text-love-300 hover:underline" target="_blank">Vue.js</a> and <a href="https://tailwindcss.com/" class="text-love-300 hover:underline" target="_blank">Tailwind CSS</a>. Source code available on <a href="https://github.com/perkola/perko.la" class="text-love-300 hover:underline" target="_blank">GitHub</a>.</p>
             </div>
         </div>
       </div>

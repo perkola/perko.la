@@ -1,6 +1,6 @@
 <template>
   <article class="flex mt-8">
-    <div class="w-40">
+    <div class="hidden sm:block sm:w-40">
       <p v-if="dates" class="leading-tight text-gray-600">
         {{ dates.from_month }} / {{ dates.from_year }}
         -
@@ -13,8 +13,20 @@
       </p>
     </div>
     <div class="flex-1">
-      <h2 class="text-xl leading-none text-gray-800">{{ title }}</h2>
-      <h3 class="text-gray-600 leading-none mt-1">{{ company }}</h3>
+      <h2 class="text-lg sm:text-xl leading-none text-gray-800">{{ title }}</h2>
+      <div class="flex justify-between mt-2 sm:mt-1">
+        <h3 class="text-sm sm:text-base text-gray-600 leading-none">{{ company }}</h3>
+        <p v-if="dates" class="block sm:hidden text-sm sm:text-base leading-tight text-gray-600">
+                {{ dates.from_month }} / {{ dates.from_year }}
+                -
+                <span v-if="dates.to_month">
+                  {{ dates.to_month }} / {{ dates.to_year }}
+                </span>
+                <span v-else>
+                  Present
+                </span>
+              </p>
+      </div>
       <p class="mt-2 text-sm">
         <slot></slot>
       </p>
