@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light dark;
+
+  /* Serif everywhere — Fraunces variable with a classic serif fallback. */
+  --font-serif: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, "Times New Roman", serif;
+
+  /* Type scale (fluid). */
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.13rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.4vw, 1.4rem);
+  --step-2: clamp(1.44rem, 1.3rem + 0.7vw, 1.85rem);
+  --step-3: clamp(1.9rem, 1.6rem + 1.6vw, 2.9rem);
+
+  /* Rhythm. */
+  --space-2xs: 0.375rem;
+  --space-xs: 0.625rem;
+  --space-s: 1rem;
+  --space-m: 1.6rem;
+  --space-l: 2.4rem;
+  --space-xl: 3.6rem;
+
+  --radius: 18px;
+  --radius-sm: 8px;
+  --measure: 46rem;
+
+  /* --- Light: dark green on very light beige --- */
+  --bg: #f6f2e8;
+  --surface: #fffdf7;
+  --text: #22402e;
+  --text-strong: #16301f;
+  --text-muted: #5f6d5a;
+  --accent: #2f5d3a;
+  --accent-hover: #234a2d;
+  --chip-bg: #e9efdf;
+  --chip-text: #33562f;
+  --border: #e6dfcc;
+  --rule: #e2dac6;
+  --timeline: #bccca9;
+  --dot: #2f5d3a;
+  --shadow: 0 1px 2px rgba(31, 61, 43, 0.05), 0 10px 30px rgba(31, 61, 43, 0.06);
+  --selection: #d9e7c8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10150d;
+    --surface: #1b2318;
+    --text: #e7e3d3;
+    --text-strong: #f2efe2;
+    --text-muted: #9aa78f;
+    --accent: #a6cfac;
+    --accent-hover: #c1e0c4;
+    --chip-bg: rgba(166, 207, 172, 0.12);
+    --chip-text: #c6dcbd;
+    --border: #35422d;
+    --rule: #2e3826;
+    --timeline: #3c4a34;
+    --dot: #a6cfac;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 34px rgba(0, 0, 0, 0.35);
+    --selection: rgba(166, 207, 172, 0.22);
+  }
+}
