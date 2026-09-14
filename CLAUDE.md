@@ -37,7 +37,8 @@ npm run lint       # oxlint
   `:root` + one `@media (prefers-color-scheme: dark)` override, fluid type
   scale, spacing), `app.css` (layout + components + `@media print`).
 - **Static:** `public/` — `William.jpeg`, `favicon.svg` (dark-green monogram),
-  `CNAME` (`perko.la`).
+  `CNAME` (`perko.la`), and `William-Perkola-CV.pdf` (built by `npm run
+  resume`, see "PDF CV" below — not written by hand).
 
 ## Conventions
 
@@ -52,23 +53,32 @@ npm run lint       # oxlint
 - **Type:** headings set `font-variation-settings` to push Fraunces' `opsz` /
   `SOFT` / `WONK`; body copy leaves `font-optical-sizing: auto` to track size.
 - **BEM-ish class names** (`.block__element`, `.block--modifier`).
+- **`.header__download`** (the PDF button) is `position: absolute`, not a
+  flex sibling of `.header__portrait`/`.header__body` — as a flex item it
+  stole width from `.header__body` and made the name wrap. The header's
+  mobile breakpoint is 700px (not the usual 560px) so the fluid-sized name
+  never grows wide enough to run under the absolutely-positioned button
+  before the layout stacks.
 
 ## Print (`@media print` in `app.css`)
 
 Triggered by the browser's own Print / ⌘P — there is no in-page button, and
 there's no reliable way to intercept ⌘P and redirect it to the PDF instead
-(no cross-browser way for a page to cancel/redirect the native print action).
+(no cross-browser way for a page to cancel or redirect the native print
+action).
 
-Printing the page no longer prints the page's own content. It used to render
-a tuned one-page version of the CV, but that duplicated (and was a strictly
-lesser copy of — it lacked About me / Personal Interests / Other Experience)
-the dedicated PDF CV (see below), and needed re-tuning by hand whenever
-content changed to keep fitting one page. Instead it hides `.card`/`.footer`
-and shows `.print-notice` (in `App.tsx`, hidden on screen) — a short pointer
-to `perko.la/William-Perkola-CV.pdf`. Still resets `html, body, .page {
-min-height: 0 }` — without that, Firefox resolves the reset's `min-height:
-100vh` against the full page box and emits a trailing blank page, even with
-little content to print.
+Printing hides `.card`/`.footer` and shows `.print-notice` instead (a `div`
+in `App.tsx`, hidden on screen) — the name and title re-using
+`.header__name`/`.header__title`'s own `font-variation-settings`, the PDF
+link styled like `.header__download`'s pill button. This replaced an earlier
+tuned one-page printout of the CV itself, dropped because it duplicated (and
+was a strictly lesser copy of — it lacked About me / Personal Interests /
+Other Experience) the dedicated PDF CV below, and needed re-tuning by hand
+whenever content changed to keep fitting one page.
+
+Still resets `html, body, .page { min-height: 0 }` — without that, Firefox
+resolves the reset's `min-height: 100vh` against the full page box and emits
+a trailing blank page, even with as little content as the notice.
 
 ## PDF CV (`resume/`)
 
@@ -107,10 +117,10 @@ package is no longer a dependency anywhere in this repo.
   whenever `@fontsource-variable/fraunces` gets bumped, to keep them close.
 
 Colors, fonts, and icons intentionally mirror the site's own (`tokens.css`'s
-`--accent`/`--text`, `--font-serif`'s Fraunces, `icons.tsx`'s SVGs) so the PDF
-and the web CV read as one thing. Typst's `text(variations: (SOFT: .., WONK:
-..))` reproduces the site's `font-variation-settings` heading treatment
-directly; `opsz` is auto-driven from size the same way the site's
+`--accent`/`--text`/`--font-serif`, `icons.tsx`'s SVGs) so the PDF and the web
+CV read as one thing. Typst's `text(variations: (SOFT: .., WONK: ..))`
+reproduces the site's `font-variation-settings` heading treatment directly;
+`opsz` is auto-driven from size the same way the site's
 `font-optical-sizing: auto` is.
 
 Build it with `npm run resume` (needs the `typst` CLI — `brew install

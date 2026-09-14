@@ -7,7 +7,7 @@
 //
 // Colors, fonts and icons are the same ones the web CV uses, so the two stay
 // visually related — see ../src/styles/tokens.css (palette),
-// ../src/styles/app.css (`--font-serif`) and ../src/components/icons.tsx.
+// ../src/styles/tokens.css (`--font-serif`) and ../src/components/icons.tsx.
 
 // ---- Palette (src/styles/tokens.css :root, light mode) ----
 #let accent = rgb("#2f5d3a")
