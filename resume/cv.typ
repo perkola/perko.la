@@ -75,13 +75,12 @@
     )[
       - Own OSTTRA's inner-sourced design system, partnering closely with product teams and UX to drive adoption across 30+ teams.
       - Evolving the system for AI-assisted development, enabling agents and AI tools to consume and build with it directly.
-      - Driving adoption across 30+ product teams at OSTTRA.
     ]
 
     #entry(
       title: "Software Engineer",
-      date: "2017 - 2021",
-      institution: "OSTTRA / TriOptima",
+      date: "2017 – 2021",
+      institution: "OSTTRA",
       location: "Stockholm",
     )[
       - Full-stack role in a highly autonomous and experienced team, building a collateral management system and a settlement service using micro services on a private cloud infrastructure.
@@ -89,7 +88,7 @@
 
     #entry(
       title: "Software Consultant",
-      date: "2015 - 2021",
+      date: "2015 – 2021",
       institution: "Freelance",
       location: "Stockholm",
     )[
@@ -98,7 +97,7 @@
 
     #entry(
       title: "Master Thesis Student",
-      date: "2017 - 2017",
+      date: "2017 – 2017",
       institution: "Scania Group",
       location: "Södertälje",
     )[
@@ -107,16 +106,16 @@
 
     #entry(
       title: "Intern",
-      date: "2016 - 2017",
+      date: "2016 – 2017",
       institution: "Scania Group",
       location: "Södertälje",
     )[
-      - A year long internship programme at the R&D department for master's students.
+      - A year-long internship programme at the R&D department for master's students.
     ]
 
     #entry(
-      title: "Mobile Developer",
-      date: "2016 - 2016",
+      title: "Android Developer",
+      date: "2016 – 2016",
       institution: "Scania Group",
       location: "Södertälje",
     )[
@@ -125,18 +124,18 @@
 
     #entry(
       title: "Software Consultant",
-      date: "2014 - 2015",
+      date: "2014 – 2015",
       institution: "Academic Work",
       location: "Stockholm",
     )[
-      - Part time consultancy at an advertising company. Responsibilities consisted of maintaining multiple websites while developing a job search engine using the API of the Swedish Public Employment Service (Arbetsförmedlningen).
+      - Part-time consultancy at an advertising company. Responsibilities consisted of maintaining multiple websites while developing a job search engine using the API of the Swedish Public Employment Service (Arbetsförmedlingen).
     ]
 
     = Education
 
     #entry(
       title: "Master of Engineering (M.Eng.), Computer Science",
-      date: "2017",
+      date: "2015 – 2017",
       institution: "KTH Royal Institute of Technology",
       location: "Stockholm",
       [Thesis: _"Relevance classification of connected vehicles for short-lived distributed geospatial events"_.],
@@ -144,7 +143,7 @@
 
     #entry(
       title: "Bachelor of Engineering (B.Eng.), Computer Science",
-      date: "2015",
+      date: "2012 – 2015",
       institution: "KTH Royal Institute of Technology",
       location: "Stockholm",
       [],
@@ -154,14 +153,14 @@
 
     #entry(
       title: "Secretary",
-      date: "2024 - Present",
+      date: "2024 – Present",
       institution: "HSB BRF Vågskivan i Stockholm",
       [],
     )
 
     #entry(
       title: "Chairman of the board",
-      date: "2019 - 2023",
+      date: "2019 – 2023",
       institution: "BRF Stänkskärmen 20",
       [],
     )

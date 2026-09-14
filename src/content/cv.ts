@@ -38,7 +38,11 @@ export const cv: CV = {
             "Evolving the system for AI-assisted development, enabling agents and AI tools to consume and build with it directly.",
           ],
           skills: [
-            "Project management",
+            "Product Management",
+            "Stakeholder Management",
+            "Design Systems",
+            "Agile / Scrum",
+            "AI-Assisted Development",
             "React",
             "TypeScript",
             "Storybook",
