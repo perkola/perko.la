@@ -81,12 +81,23 @@ package is no longer a dependency anywhere in this repo.
 - **`resume/icons/*.svg`** — single-color icons baked to the accent green
   (`#2f5d3a`), redrawn from `src/components/icons.tsx` (email, location,
   linkedin, github) plus two more in the same style (phone, globe — adapted
-  from Feather Icons, MIT). If the accent color ever changes, regenerate
-  these too — the color is baked in, not a runtime parameter.
+  from Feather Icons, MIT). Kept in sync by hand, not generated (see the
+  comment in `icons.tsx`) — deliberately, since they rarely change; if that
+  changes, revisit generating them instead. If the accent color ever
+  changes, regenerate these too — the color is baked in, not a runtime
+  parameter.
 - **`resume/fonts/`** — Fraunces variable TTFs (roman + italic), sourced from
   the [Fraunces GitHub repo](https://github.com/undercasetype/Fraunces)
   (OFL). Typst can't load the `.woff2` files `@fontsource-variable/fraunces`
-  ships for the web, so these are a separate copy of the same typeface.
+  ships for the web, so these are a separate copy of the same typeface —
+  necessarily, not just for convenience, since there's no format that works
+  in both. **They can drift**: as of writing, the web is on Fontsource's
+  build of Fraunces v38 (2025-09-10) and the PDF's `.ttf` is a slightly newer
+  pull from Fraunces' `master` branch. Not worth fully unifying (it'd mean
+  dropping Fontsource and reimplementing its per-script/per-axis subsetting
+  by hand), but re-pull the `.ttf` from
+  https://github.com/undercasetype/Fraunces/tree/master/fonts/variable
+  whenever `@fontsource-variable/fraunces` gets bumped, to keep them close.
 
 Colors, fonts, and icons intentionally mirror the site's own (`tokens.css`'s
 `--accent`/`--text`, `--font-serif`'s Fraunces, `icons.tsx`'s SVGs) so the PDF

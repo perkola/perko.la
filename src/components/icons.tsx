@@ -1,5 +1,10 @@
 import type { SVGProps } from "react";
 
+// The email/location/linkedin/github icons below are hand-copied (accent
+// color baked in instead of currentColor) into ../../resume/icons/*.svg for
+// the PDF CV — see resume/style.typ. Kept in sync by hand, not generated;
+// update both if you change one of these four.
+
 type IconProps = SVGProps<SVGSVGElement>;
 
 const base = {
