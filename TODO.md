@@ -5,16 +5,10 @@ discussed in-session; not sequential on purpose — this isn't the full list,
 just what's queued. See [`CLAUDE.md`](CLAUDE.md) for how the project fits
 together.
 
-## 1. Run checks on PRs
+## ~~1. Run checks on PRs~~ — done
 
-`deploy.yml` only triggers on push to `main` — there's no workflow that runs
-on `pull_request`. This meant merging the recent Dependabot PRs required
-manually running `npm ci`/`lint`/`build` locally for each one, since GitHub
-had nothing to show as a check.
-
-Add a small `ci.yml`: `npm ci && npm run lint && npm run build` on
-`pull_request`. Once it exists, consider branch protection on `main`
-requiring it to pass.
+Added `.github/workflows/ci.yml`: `npm ci && npm run lint && npm run build`
+on `pull_request`. Consider branch protection on `main` requiring it to pass.
 
 ## 2. Enable TypeScript `strict` mode
 
