@@ -53,6 +53,7 @@
       #set text(size: 0.85em)
       // src/styles/app.css .company__name: SOFT 20, WONK 0.
       #text(weight: "semibold", variations: (SOFT: 20, WONK: 0), title)
+
       #text(size: 0.9em, smallcaps([
         #if institution != "" or location != "" [
           #institution
@@ -60,6 +61,7 @@
           #if location != "" [ #icon("location", size: 0.85em) #location ]
         ]
       ]))
+
       #text(size: 0.9em, description)
     ],
   )
