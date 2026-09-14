@@ -63,6 +63,43 @@ CV lands on **one A4 page**. It also resets `html, body { min-height: 0 }` —
 without that, Firefox resolves the reset's `min-height: 100vh` against the full
 page box and emits a trailing blank page.
 
+## PDF CV (`resume/`)
+
+A downloadable PDF CV, built from Typst source and linked from the site
+footer. Used to live on typst.app as a `@preview/neat-cv` document; that
+package is no longer a dependency anywhere in this repo.
+
+- **`resume/cv.typ`** — the actual content (positions, entries, sidebar). This
+  is the second, independent source of CV content, alongside
+  `src/content/cv.ts` — there's no generator linking them. **Keep both in
+  sync by hand** when the CV changes.
+- **`resume/style.typ`** — colors, fonts, icon rendering, and the small
+  layout helpers (`entry()`, `icon-rows()`, `item-pills()`, the sidebar
+  grid). Purpose-built for this one document, not a reusable theme — no
+  `author:` dict, no generic theme state. Its structure (sidebar + entry
+  grid) is inspired by `neat-cv`'s layout, rewritten from scratch.
+- **`resume/icons/*.svg`** — single-color icons baked to the accent green
+  (`#2f5d3a`), redrawn from `src/components/icons.tsx` (email, location,
+  linkedin, github) plus two more in the same style (phone, globe — adapted
+  from Feather Icons, MIT). If the accent color ever changes, regenerate
+  these too — the color is baked in, not a runtime parameter.
+- **`resume/fonts/`** — Fraunces variable TTFs (roman + italic), sourced from
+  the [Fraunces GitHub repo](https://github.com/undercasetype/Fraunces)
+  (OFL). Typst can't load the `.woff2` files `@fontsource-variable/fraunces`
+  ships for the web, so these are a separate copy of the same typeface.
+
+Colors, fonts, and icons intentionally mirror the site's own (`tokens.css`'s
+`--accent`/`--text`, `--font-serif`'s Fraunces, `icons.tsx`'s SVGs) so the PDF
+and the web CV read as one thing. Typst's `text(variations: (SOFT: .., WONK:
+..))` reproduces the site's `font-variation-settings` heading treatment
+directly; `opsz` is auto-driven from size the same way the site's
+`font-optical-sizing: auto` is.
+
+Build it with `npm run resume` (needs the `typst` CLI — `brew install
+typst`), which compiles straight to `public/William-Perkola-CV.pdf`. This
+isn't built in CI: regenerate and commit the PDF locally whenever
+`resume/cv.typ` changes, the same way you'd update `cv.ts` for the web CV.
+
 ## Deployment
 
 Pushing to `main` runs `.github/workflows/deploy.yml`: `npm ci` → `npm run
