@@ -11,7 +11,11 @@
 
 // ---- Palette (src/styles/tokens.css :root, light mode) ----
 #let accent = rgb("#2f5d3a")
-#let header-bg = rgb("#16301f")
+#let text-strong = rgb("#16301f")
+// --chip-bg — a pale tint, not a dark fill, so the header band (a full-bleed
+// block) doesn't print as a near-black slab of ink. Text on it uses
+// text-strong/accent below instead of white.
+#let header-bg = rgb("#e9efdf")
 #let ink = rgb("#22402e")
 #let ink-muted = rgb("#5f6d5a")
 
@@ -118,17 +122,18 @@
   inset: (bottom: margin),
 )[
   #set align(center)
-  #set text(fill: white, font: heading-font)
+  // src/styles/app.css .header__name is --text-strong, .header__title is --accent.
+  #set text(font: heading-font)
 
   // src/styles/app.css .header__name: opsz 80, SOFT 44, WONK 1.
-  #text(size: 3em, variations: (opsz: 80, SOFT: 44, WONK: 1))[
+  #text(size: 3em, fill: text-strong, variations: (opsz: 80, SOFT: 44, WONK: 1))[
     #text(weight: "light")[#firstname]
     #text(weight: "medium")[#lastname]
   ]
 
   #v(-0.5em)
 
-  #text(size: 0.95em, fill: luma(200), weight: "regular")[#smallcaps(positions.join(dot))]
+  #text(size: 0.95em, fill: accent, weight: "regular")[#smallcaps(positions.join(dot))]
 ]
 
 /// The two-column sidebar + body grid filling the rest of the page.
