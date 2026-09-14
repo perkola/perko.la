@@ -55,13 +55,20 @@ npm run lint       # oxlint
 
 ## Print (`@media print` in `app.css`)
 
-Triggered by the browser's own Print / ⌘P — there is no in-page button.
-The block re-declares the design tokens for flat ink-on-paper (white surface,
-near-black text, grey rules, no shadows/backgrounds), hides `.chips` and
-`.footer`, strips the timeline chrome, and tightens type/spacing so the whole
-CV lands on **one A4 page**. It also resets `html, body { min-height: 0 }` —
-without that, Firefox resolves the reset's `min-height: 100vh` against the full
-page box and emits a trailing blank page.
+Triggered by the browser's own Print / ⌘P — there is no in-page button, and
+there's no reliable way to intercept ⌘P and redirect it to the PDF instead
+(no cross-browser way for a page to cancel/redirect the native print action).
+
+Printing the page no longer prints the page's own content. It used to render
+a tuned one-page version of the CV, but that duplicated (and was a strictly
+lesser copy of — it lacked About me / Personal Interests / Other Experience)
+the dedicated PDF CV (see below), and needed re-tuning by hand whenever
+content changed to keep fitting one page. Instead it hides `.card`/`.footer`
+and shows `.print-notice` (in `App.tsx`, hidden on screen) — a short pointer
+to `perko.la/William-Perkola-CV.pdf`. Still resets `html, body, .page {
+min-height: 0 }` — without that, Firefox resolves the reset's `min-height:
+100vh` against the full page box and emits a trailing blank page, even with
+little content to print.
 
 ## PDF CV (`resume/`)
 

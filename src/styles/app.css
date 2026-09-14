@@ -395,148 +395,43 @@ a {
    Print  (triggered with the browser's own Print / ⌘P)
    ============================================================ */
 
+.print-notice {
+  display: none;
+}
+
 @media print {
   @page {
-    margin: 0.7cm;
+    margin: 2cm;
   }
 
-  /* Recolour the whole page by overriding the design tokens: flat, ink on
-     paper, no backgrounds to burn through toner. */
-  :root {
-    --surface: #fff;
-    --text: #1a1a1a;
-    --text-strong: #000;
-    --text-muted: #555;
-    --accent: #1a1a1a;
-    --accent-hover: #1a1a1a;
-    --chip-bg: transparent;
-    --chip-text: #1a1a1a;
-    --border: #9a9a9a;
-    --rule: #9a9a9a;
-    --timeline: #9a9a9a;
-    --dot: #555;
-    --shadow: none;
+  /* The live page only ever showed what's on the site, missing sections the
+     PDF has (About me / Personal Interests / Other Experience) — rather
+     than maintain two one-page print layouts that can drift apart, print a
+     pointer to the dedicated PDF CV instead of the page itself. */
+  body {
+    background: #fff;
   }
 
   /* Firefox resolves 100vh to the full page height in print, so the reset's
      `body { min-height: 100vh }` overflows the printable area and spawns a
      trailing blank page. Clear it. */
   html,
-  body {
+  body,
+  .page {
     height: auto;
     min-height: 0;
   }
 
-  body {
-    background: #fff;
-    font-size: 9pt;
-    line-height: 1.3;
-  }
-
-  p,
-  li {
-    orphans: 3;
-    widows: 3;
-  }
-
-  .page {
-    min-height: 0;
-    padding: 0;
-  }
-
-  .card {
-    max-width: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  /* Skill tags, the download button, and the site footer are screen-only. */
-  .chips,
-  .header__download,
+  .card,
   .footer {
     display: none;
   }
 
-  /* --- Tight vertical rhythm so the whole CV lands on one page --- */
-  .section {
-    margin-top: 10pt;
-  }
-
-  .section__body {
-    margin-top: 5pt;
-    gap: 7pt;
-  }
-
-  .contacts {
-    margin-top: 4pt;
-  }
-
-  .header__title {
-    margin-top: 2pt;
-  }
-
-  .company__name {
-    margin-bottom: 3pt;
-  }
-
-  .roles {
-    gap: 5pt;
-    padding-left: 0; /* decorative timeline removed below */
-  }
-
-  .role__points {
-    margin-top: 3pt;
-    gap: 2pt;
-  }
-
-  /* --- Compact, predictable print type --- */
-  .header__name {
-    font-size: 18pt;
-  }
-
-  .header__title {
-    font-size: 10pt;
-  }
-
-  .section__heading {
-    font-size: 11pt;
-    padding-bottom: 2pt;
-  }
-
-  .company__name {
-    font-size: 10.5pt;
-  }
-
-  .role__title,
-  .edu__degree {
-    font-size: 9pt;
-  }
-
-  .header__portrait {
-    width: 78px;
-  }
-
-  /* Decorative timeline chrome adds nothing on paper. */
-  .roles--timeline::before,
-  .roles--timeline .role::before {
-    display: none;
-  }
-
-  /* Don't split a heading from its content, or an entry across a page. */
-  .header,
-  .edu,
-  .role {
-    break-inside: avoid;
-  }
-
-  .section__heading,
-  .company__name {
-    break-after: avoid;
-  }
-
-  a {
-    text-decoration: none;
+  .print-notice {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 14pt;
+    color: #1a1a1a;
+    text-align: center;
   }
 }
