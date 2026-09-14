@@ -16,11 +16,7 @@ export function Footer({ name }: { name: string }) {
           Vite
         </a>{" "}
         &amp;{" "}
-        <a
-          href="https://fonts.google.com/specimen/Fraunces"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://fonts.google.com/specimen/Fraunces" target="_blank" rel="noreferrer">
           Fraunces
         </a>
         .

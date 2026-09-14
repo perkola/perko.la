@@ -16,6 +16,7 @@ npm run dev          # http://localhost:5173/
 npm run build        # type-check + production build to dist/
 npm run preview      # serve the production build locally
 npm run lint         # oxlint
+npm run format       # oxfmt, writes in place
 ```
 
 ## Editing content
@@ -66,5 +67,5 @@ public/                  # William.jpeg, favicon.svg, CNAME, the built PDF
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site
 and publishes `dist/` to GitHub Pages. The custom domain is set via
-`public/CNAME` plus the repo's Pages settings. Pages *Source* must be set to
+`public/CNAME` plus the repo's Pages settings. Pages _Source_ must be set to
 **GitHub Actions** (Settings → Pages).

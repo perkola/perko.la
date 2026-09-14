@@ -21,11 +21,12 @@ etc. included, no code changes needed).
 No a11y tooling exists at all. Add an `axe-core`-via-Playwright pass,
 ideally as a step in the PR CI workflow from #1 once it exists.
 
-## 9. Evaluate oxfmt
+## ~~9. Evaluate oxfmt~~ — done
 
-[`oxfmt`](https://oxc.rs/docs/guide/usage/formatter.html) is the formatter
-from the same Oxc project as `oxlint` (already in use) — Rust-based, ~30x
-faster than Prettier, ~95%+ Prettier-compatible, covers JS/TS/CSS/JSON/
-Markdown/YAML. Still **alpha** as of writing. Worth trying as `npm run
-format` once it's matured a bit — or now, if it's already good enough for a
-codebase this size.
+Added `oxfmt` (latest, alongside `oxlint` bumped to latest too) as
+`npm run format` / `npm run format:check`, the latter wired into CI. Vanilla
+defaults, no `.oxfmtrc.json`. Applied once to the whole repo — mostly
+mechanical (line-wrap widths, quote style), one quirk worth knowing:
+oxfmt de-indents multi-line Markdown list-item continuation lines (still
+renders fine — CommonMark's lazy-continuation rule — just looks a little
+inconsistent in raw source).

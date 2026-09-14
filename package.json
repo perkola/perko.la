@@ -1,12 +1,14 @@
 {
   "name": "perko.la",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "preview": "vite preview",
     "resume": "typst compile --root . --font-path resume/fonts resume/cv.typ public/William-Perkola-CV.pdf"
   },
@@ -20,7 +22,8 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
-    "oxlint": "^1.79.0",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
     "typescript": "~7.0.2",
     "vite": "^8.3.0"
   }

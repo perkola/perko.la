@@ -2,8 +2,9 @@
   color-scheme: light dark;
 
   /* Serif everywhere — Fraunces variable with a classic serif fallback. */
-  --font-serif: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype",
-    Palatino, Georgia, "Times New Roman", serif;
+  --font-serif:
+    "Fraunces Variable", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
 
   /* Type scale (fluid). */
   --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
