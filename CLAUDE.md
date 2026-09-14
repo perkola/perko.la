@@ -142,5 +142,6 @@ few minutes; watch with `gh run watch --repo perkola/perko.la`.
   still served at `perkola.github.io`).
 - DNS is unchanged — the apex A/AAAA records point at GitHub Pages; routing is
   by the per-repo custom-domain setting.
-- The workflow logs a harmless "Node 20 deprecated" warning; bump
-  `setup-node`'s `node-version` to `22` to silence it.
+- Dependabot (`.github/dependabot.yml`) checks `npm` + `github-actions` monthly.
+  `node-version: 20` in the workflow is the Node version used to run `npm ci`/
+  `npm run build`, unrelated to which Node the actions themselves run on.
