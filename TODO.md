@@ -10,12 +10,11 @@ together.
 Added `.github/workflows/ci.yml`: `npm ci && npm run lint && npm run build`
 on `pull_request`. Consider branch protection on `main` requiring it to pass.
 
-## 2. Enable TypeScript `strict` mode
+## ~~2. Enable TypeScript `strict` mode~~ — done
 
-Neither `tsconfig.app.json` nor `tsconfig.node.json` sets `"strict": true` —
-modern module settings (`verbatimModuleSyntax`, `erasableSyntaxOnly`,
-`noUnusedLocals`) are in place, but not `strictNullChecks`/`noImplicitAny`.
-Turn it on and see what surfaces; likely small given the codebase size.
+Turned on in both `tsconfig.app.json`/`tsconfig.node.json`. Zero errors —
+the codebase was already clean enough (`strictNullChecks`, `noImplicitAny`,
+etc. included, no code changes needed).
 
 ## 8. Accessibility check in CI
 
