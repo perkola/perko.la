@@ -14,12 +14,16 @@ export default function App() {
       </main>
       <Footer name={cv.profile.name} />
 
-      {/* Screen-only element flipped visible in @media print — see app.css. */}
-      <p className="print-notice">
-        {cv.profile.name} — {cv.profile.title}
-        <br />
-        For a full PDF version of this CV, see perko.la/William-Perkola-CV.pdf
-      </p>
+      {/* Screen-only, flipped visible in @media print — see app.css. */}
+      <div className="print-notice">
+        <p className="print-notice__name">{cv.profile.name}</p>
+        <p className="print-notice__title">{cv.profile.title}</p>
+        <p className="print-notice__cta">
+          Download the full PDF CV
+          <br />
+          <span className="print-notice__link">perko.la/William-Perkola-CV.pdf</span>
+        </p>
+      </div>
     </div>
   );
 }

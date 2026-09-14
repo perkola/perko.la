@@ -427,11 +427,44 @@ a {
     display: none;
   }
 
+  /* Pushed down with a fixed length (not vh/svh) so it reads as roughly
+     centered without the viewport-relative sizing that caused the Firefox
+     trailing-blank-page bug above. */
   .print-notice {
     display: block;
-    font-family: var(--font-serif);
-    font-size: 14pt;
-    color: #1a1a1a;
+    margin-top: 8cm;
     text-align: center;
+    color: #1a1a1a;
+  }
+
+  /* Same axis treatment as .header__name/.header__title on screen. */
+  .print-notice__name {
+    font-family: var(--font-serif);
+    font-size: 28pt;
+    font-weight: 560;
+    font-variation-settings: "opsz" 80, "SOFT" 44, "WONK" 1;
+    letter-spacing: -0.015em;
+  }
+
+  .print-notice__title {
+    margin-top: 0.15cm;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 13pt;
+  }
+
+  .print-notice__cta {
+    margin-top: 1cm;
+    font-size: 11pt;
+  }
+
+  /* Same pill-outline treatment as .header__download on screen. */
+  .print-notice__link {
+    display: inline-block;
+    margin-top: 0.4cm;
+    padding: 0.3cm 0.9cm;
+    border: 1px solid #1a1a1a;
+    border-radius: 999px;
+    font-weight: 500;
   }
 }
