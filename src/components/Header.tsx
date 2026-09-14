@@ -48,6 +48,10 @@ export function Header({ profile }: { profile: Profile }) {
           })}
         </ul>
       </div>
+
+      <a className="header__download" href="/William-Perkola-CV.pdf">
+        Download CV
+      </a>
     </header>
   );
 }

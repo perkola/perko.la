@@ -7,9 +7,6 @@ export function Footer({ name }: { name: string }) {
         © {year} {name}
       </p>
       <p>
-        <a href="/William-Perkola-CV.pdf">Download this CV as a PDF</a>
-      </p>
-      <p>
         Built with{" "}
         <a href="https://react.dev/" target="_blank" rel="noreferrer">
           React

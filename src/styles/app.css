@@ -50,6 +50,7 @@ a {
    ============================================================ */
 
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   gap: clamp(1.1rem, 0.6rem + 2.5vw, 2rem);
@@ -136,6 +137,28 @@ a {
   text-underline-offset: 3px;
 }
 
+.header__download {
+  /* Taken out of flow so it never competes with .header__body for width
+     (that made long names wrap) — it just floats over the header's own
+     top-right corner instead. */
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.header__download:hover {
+  background-color: var(--accent);
+  color: var(--surface);
+}
+
 @media (max-width: 560px) {
   .header {
     flex-direction: column;
@@ -148,6 +171,13 @@ a {
 
   .header__bio {
     margin-inline: auto;
+  }
+
+  /* The absolute top-right placement would overlap the (now centered)
+     portrait at this width — drop back into flow, below everything else. */
+  .header__download {
+    position: static;
+    margin-top: 0.75rem;
   }
 }
 
@@ -422,8 +452,9 @@ a {
     padding: 0;
   }
 
-  /* Skill tags and the site footer are screen-only. */
+  /* Skill tags, the download button, and the site footer are screen-only. */
   .chips,
+  .header__download,
   .footer {
     display: none;
   }
