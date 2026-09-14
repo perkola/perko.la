@@ -16,10 +16,12 @@ no persistence, no theme JS**.
 ## Commands
 
 ```bash
-npm run dev        # dev server on :5173
-npm run build      # tsc -b && vite build  ->  dist/
-npm run preview    # preview the production build
-npm run lint       # oxlint
+npm run dev           # dev server on :5173
+npm run build         # tsc -b && vite build  ->  dist/
+npm run preview       # preview the production build
+npm run lint          # oxlint
+npm run format        # oxfmt, writes in place
+npm run format:check  # oxfmt --check, used in CI
 ```
 
 ## Where things live
@@ -38,7 +40,7 @@ npm run lint       # oxlint
   scale, spacing), `app.css` (layout + components + `@media print`).
 - **Static:** `public/` — `William.jpeg`, `favicon.svg` (dark-green monogram),
   `CNAME` (`perko.la`), and `William-Perkola-CV.pdf` (built by `npm run
-  resume`, see "PDF CV" below — not written by hand).
+resume`, see "PDF CV" below — not written by hand).
 
 ## Conventions
 
@@ -130,7 +132,8 @@ isn't built in CI: regenerate and commit the PDF locally whenever
 
 ## CI (`.github/workflows/ci.yml`)
 
-Runs on every PR against `main`: `npm ci` → `npm run lint` → `npm run build`.
+Runs on every PR against `main`: `npm ci` → `npm run lint` → `npm run
+format:check` → `npm run build`.
 Doesn't touch `resume/` — the PDF isn't built or checked here (see above).
 Exists so Dependabot PRs (and any other PR) get a check before merging,
 rather than relying on testing them locally by hand.

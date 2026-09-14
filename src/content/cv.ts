@@ -55,14 +55,7 @@ export const cv: CV = {
           description: [
             "Full-stack role in a highly autonomous and experienced team, building a collateral management system and a settlement service using micro services on a private cloud infrastructure.",
           ],
-          skills: [
-            "Go",
-            "Python",
-            "Clojure",
-            "ClojureScript",
-            "Docker",
-            "Kubernetes",
-          ],
+          skills: ["Go", "Python", "Clojure", "ClojureScript", "Docker", "Kubernetes"],
         },
       ],
     },
