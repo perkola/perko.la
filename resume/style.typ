@@ -19,9 +19,11 @@
 #let ink = rgb("#22402e")
 #let ink-muted = rgb("#5f6d5a")
 
-// ---- Type (src/styles/tokens.css --font-serif) ----
-#let heading-font = "Fraunces"
-#let body-font = "Fraunces"
+// ---- Type ----
+// One family for everything, like the site's own single --font-serif token
+// (headings and body both leave --font-serif alone; only the variation axes
+// below differ).
+#let font = "Fraunces"
 
 // ---- Icons ----
 // SVGs in ./icons/, redrawn from src/components/icons.tsx and baked to
@@ -81,7 +83,7 @@
 /// little filled tab to its left.
 #let show-side-headings(body) = {
   show heading.where(depth: 1): it => block(width: 100%, above: 2em)[
-    #set text(font: heading-font, fill: accent, weight: "regular", size: 0.95em, variations: heading-variations)
+    #set text(font: font, fill: accent, weight: "regular", size: 0.95em, variations: heading-variations)
     #grid(
       columns: (0pt, 1fr),
       align: horizon,
@@ -96,16 +98,15 @@
 /// small-caps with a rule filling the rest of the line.
 #let show-body-headings(body) = {
   show heading.where(depth: 1): it => block(width: 100%)[
-    #text(fill: accent, weight: "regular", font: heading-font, size: 0.9em, variations: heading-variations)[#smallcaps(it.body)]
+    #text(fill: accent, weight: "regular", font: font, size: 0.9em, variations: heading-variations)[#smallcaps(it.body)]
     #box(width: 1fr, line(length: 100%, stroke: accent))
   ]
   body
 }
 
 /// A list of items shown as outlined pills (skills, technologies, ...).
-#let item-pills(items, justify: true) = {
+#let item-pills(items) = {
   set text(size: 0.85em)
-  set par(justify: justify)
 
   block(
     items
@@ -114,16 +115,20 @@
   )
 }
 
-/// The colored name/title banner at the top of the page.
-#let header(firstname, lastname, positions, margin) = block(
+/// The colored name/title banner at the top of the page. Reads the page's
+/// own margin via `context` (rather than taking it as a parameter) so it
+/// can't drift out of sync with `#set page(margin: ..)` in cv.typ — the
+/// block outsets by exactly the page's margin so its fill reaches the
+/// physical page edge on all three sides.
+#let header(firstname, lastname, positions) = context block(
   width: 100%,
   fill: header-bg,
-  outset: (left: margin, right: margin, top: margin),
-  inset: (bottom: margin),
+  outset: (left: page.margin.left, right: page.margin.right, top: page.margin.top),
+  inset: (bottom: page.margin.top),
 )[
   #set align(center)
   // src/styles/app.css .header__name is --text-strong, .header__title is --accent.
-  #set text(font: heading-font)
+  #set text(font: font)
 
   // src/styles/app.css .header__name: opsz 80, SOFT 44, WONK 1.
   #text(size: 3em, fill: text-strong, variations: (opsz: 80, SOFT: 44, WONK: 1))[
@@ -136,28 +141,35 @@
   #text(size: 0.95em, fill: accent, weight: "regular")[#smallcaps(positions.join(dot))]
 ]
 
-/// The two-column sidebar + body grid filling the rest of the page.
-#let side-and-body(profile-picture: none, side-width: 4cm, margin-x: 12mm, side-content, body-content) = grid(
-  columns: (side-width + margin-x / 2, auto),
-  align: (left, left),
-  inset: (col, _) => if col == 0 {
-    (right: margin-x / 2, y: 1mm)
-  } else {
-    (left: margin-x / 2, y: 1mm)
-  },
-  {
-    set text(size: 0.72em)
-    show-side-headings[
-      #if profile-picture != none {
-        block(clip: true, stroke: accent + 1pt, radius: side-width / 2, width: 100%, profile-picture)
-      }
-      #side-content
-    ]
-    v(1fr)
-  },
-  grid.vline(stroke: accent.lighten(40%) + 0.5pt),
-  {
-    show-body-headings(body-content)
-    v(1fr)
-  },
-)
+/// The two-column sidebar + body grid filling the rest of the page. The
+/// inter-column gutter matches the page's own left margin (same `context`
+/// reasoning as `header()` above), so it stays in sync automatically.
+#let side-and-body(profile-picture: none, side-content, body-content) = context {
+  let side-width = 4cm
+  let margin-x = page.margin.left
+
+  grid(
+    columns: (side-width + margin-x / 2, auto),
+    align: (left, left),
+    inset: (col, _) => if col == 0 {
+      (right: margin-x / 2, y: 1mm)
+    } else {
+      (left: margin-x / 2, y: 1mm)
+    },
+    {
+      set text(size: 0.72em)
+      show-side-headings[
+        #if profile-picture != none {
+          block(clip: true, stroke: accent + 1pt, radius: side-width / 2, width: 100%, profile-picture)
+        }
+        #side-content
+      ]
+      v(1fr)
+    },
+    grid.vline(stroke: accent.lighten(40%) + 0.5pt),
+    {
+      show-body-headings(body-content)
+      v(1fr)
+    },
+  )
+}

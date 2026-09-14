@@ -5,9 +5,14 @@
 
 #set document(title: "Curriculum Vitae", author: "William Perkola")
 
+// The gap between the header band and the body below it. Subtracted from
+// the page's own top margin so the header's outset (see style.typ) lands
+// flush with the physical page top once this gap is added back with #v().
+#let header-gap = 3mm
+
 #set page(
   paper: "a4",
-  margin: (left: 12mm, right: 12mm, top: 15mm - 3mm, bottom: 15mm),
+  margin: (x: 12mm, top: 15mm - header-gap, bottom: 15mm),
   footer: {
     set align(center)
     set text(size: 0.7em, fill: ink-muted)
@@ -15,11 +20,11 @@
   },
 )
 
-#set text(font: body-font, size: 10.5pt, weight: "regular", fill: ink)
+#set text(font: font, size: 10.5pt, weight: "regular", fill: ink)
 #set par(spacing: 0.75em, justify: true)
 
-#header("William", "Perkola", ("Product Owner", "Software Engineer"), 12mm)
-#v(3mm)
+#header("William", "Perkola", ("Product Owner", "Software Engineer"))
+#v(header-gap)
 
 #side-and-body(
   profile-picture: image("/public/William.jpeg"),
