@@ -128,6 +128,13 @@ typst`), which compiles straight to `public/William-Perkola-CV.pdf`. This
 isn't built in CI: regenerate and commit the PDF locally whenever
 `resume/cv.typ` changes, the same way you'd update `cv.ts` for the web CV.
 
+## CI (`.github/workflows/ci.yml`)
+
+Runs on every PR against `main`: `npm ci` → `npm run lint` → `npm run build`.
+Doesn't touch `resume/` — the PDF isn't built or checked here (see above).
+Exists so Dependabot PRs (and any other PR) get a check before merging,
+rather than relying on testing them locally by hand.
+
 ## Deployment
 
 Pushing to `main` runs `.github/workflows/deploy.yml`: `npm ci` → `npm run
